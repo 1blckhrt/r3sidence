@@ -1,3 +1,4 @@
+const { Activity, Client } = require("discord.js")
 const {loadCommands} = require("../../Handlers/commandHandler")
 
 module.exports = {
@@ -7,5 +8,4 @@ module.exports = {
         
         console.log("The Client is now ready!")
 
-    }
-}
+}}
