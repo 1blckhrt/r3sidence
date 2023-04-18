@@ -4,7 +4,7 @@ const { User, Message, GuildMember, ThreadMember } = Partials;
 const client = new Client({
     intents: [Guilds, GuildMembers, GuildMessages],
     partials: [User, Message, GuildMember, ThreadMember],
-    presence: {activities: [{name: "R3SIDENT EVIL RADIO #R3", type: ActivityType.Listening}],status: "dnd",}
+    presence: {activities: [{name: "R3SIDENT EVIL RADIO #R3", type: ActivityType.Listening}], status: "dnd",}
 });
 
 const { loadEvents } = require("./Handlers/eventHandler");
@@ -16,7 +16,7 @@ client.events = new Collection();
 client.commands = new Collection();
 
 client.login(client.config.token)
-.then(async () => {
+client.on('ready', async (client) => {
     console.log(`${client.user.username} is online!`);
     await loadCommands(client);
     await loadEvents(client); 

@@ -59,7 +59,7 @@ module.exports = {
             interaction.editReply({embeds: [Embed], files: [imageAttachment]});
 
         } catch (error) {
-            interaction.editReply({content: "An error occurred. Pleae contact the developer."});
+            interaction.editReply({content: "An error occurred. Please contact blckhrt#3635."});
             
             throw error;
 

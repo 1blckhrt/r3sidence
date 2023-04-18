@@ -1,11 +1,9 @@
-const { Activity, Client } = require("discord.js")
-const {loadCommands} = require("../../Handlers/commandHandler")
+const { Client } = require("discord.js")
+const {loadEvents} = require("../../Handlers/commandHandler");
 
 module.exports = {
     name:"ready",
     once: true,
     execute(client) {
-        
-        console.log("The Client is now ready!")
-
-}}
+        console.log(`${client.user.username} is online!`);
+    }};
