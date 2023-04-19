@@ -1,5 +1,4 @@
-const {Client, IntentsBitField, ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder} = require("discord.js");
-const { execute } = require("./status");
+const {Client, IntentsBitField, ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, PermissionFlagsBits} = require("discord.js");
 const client = new Client ({
     intents: [
         IntentsBitField.Flags.Guilds,
@@ -8,7 +7,6 @@ const client = new Client ({
         IntentsBitField.Flags.MessageContent
     ]
 });
-const channelID = "1050996646219096064";
 const roles = [
     {
         id: "1097555188753104987",
@@ -23,11 +21,13 @@ const roles = [
 module.exports = {
 data: new SlashCommandBuilder() 
 .setName("sendrolemessage")
-.setDescription("Sends the role message in a channel."),
+.setDescription("Sends the role message in a channel.")
+.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
         /**
          * @param {ChatInputCommandInteraction} interaction
          * @param {Client} client
          */
+        
 execute (interaction) {
     const row = new ActionRowBuilder();
     roles.forEach((role) => {
